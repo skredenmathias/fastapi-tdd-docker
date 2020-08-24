@@ -1,0 +1,18 @@
+# this version does not directly relate back to the version of
+# Docker Compose installed; it simply specifies the file format
+# that you want to use.
+version: '3.7'
+
+services:
+  web:
+    build: ./project
+    command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+        # This is a must for a development environment in order
+        # to update the container whenever a change to the source code is made.
+      - ./project:/usr/src/app
+    ports:
+      - 8002:8000
+    environment:
+      - ENVIRONMENT=dev
+      - TESTING=0
