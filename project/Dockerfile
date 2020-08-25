@@ -3,7 +3,7 @@ FROM python:3.8.3-slim-buster
 
 
 # set working directory
-RUN mkdir -p /usr/src/app
+# RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # set environment varibles
