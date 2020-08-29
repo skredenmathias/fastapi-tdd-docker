@@ -1,6 +1,8 @@
 # this version does not directly relate back to the version of
 # Docker Compose installed; it simply specifies the file format
 # that you want to use.
+# App running on port 8000
+
 version: '3.7'
 
 services:
