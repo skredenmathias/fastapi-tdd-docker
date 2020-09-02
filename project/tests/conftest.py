@@ -20,7 +20,7 @@ def get_settings_override():
 # key: get_settings
 # value: get_settings_override
 @pytest.fixture(scope='module')
-def test_app():
+def test_app_with_db():
     # set up / override dependencies
     app = create_application()
     app.dependency_overrides[get_settings] = get_settings_override

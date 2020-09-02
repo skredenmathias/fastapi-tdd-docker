@@ -27,6 +27,6 @@ async def startup_event():
     init_db(app)
 
 
-@app.on_event('Shutdown')
+@app.on_event('shutdown')
 async def shutdown_event():
     log.info('Shutting down...')
