@@ -5,7 +5,6 @@ from fastapi import FastAPI
 from app.api import ping, summaries
 from app.db import init_db
 
-
 log = logging.getLogger(__name__)
 
 
@@ -13,7 +12,9 @@ def create_application() -> FastAPI:
     application = FastAPI()
     application.include_router(ping.router)
     # prefix is applied to the OpenAPI schema for grouping operations
-    application.include_router(summaries.router, prefix='/summaries', tags=['summaries'])
+    application.include_router(
+        summaries.router, prefix="/summaries", tags=["summaries"]
+    )
 
     return application
 
@@ -21,12 +22,12 @@ def create_application() -> FastAPI:
 app = create_application()
 
 
-@app.on_event('startup')
+@app.on_event("startup")
 async def startup_event():
-    log.info('Starting up...')
+    log.info("Starting up...")
     init_db(app)
 
 
-@app.on_event('shutdown')
+@app.on_event("shutdown")
 async def shutdown_event():
-    log.info('Shutting down...')
+    log.info("Shutting down...")

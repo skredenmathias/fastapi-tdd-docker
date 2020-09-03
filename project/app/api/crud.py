@@ -9,10 +9,7 @@ from app.models.tortoise import TextSummary
 # 2. Creates a TextSummary instance
 # 3. Returns the generated ID
 async def post(payload: SummaryPayloadSchema) -> int:
-    summary = TextSummary(
-        url=payload.url,
-        summary='dummy summary',
-    )
+    summary = TextSummary(url=payload.url, summary="dummy summary",)
     await summary.save()
     return summary.id
 
