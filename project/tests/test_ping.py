@@ -1,4 +1,4 @@
-from app import main
+# from app import main
 
 # Given
 def test_ping(test_app_with_db):

@@ -3,6 +3,7 @@ from typing import Union, List
 from app.models.pydantic import SummaryPayloadSchema
 from app.models.tortoise import TextSummary
 
+
 # Utility function that creates new summaries
 # 1. Takes payload object
 # 2. Creates a TextSummary instance
@@ -17,7 +18,7 @@ async def post(payload: SummaryPayloadSchema) -> int:
 
 
 # Union[dict, None] is equivalent to Optional[dict]
-# the values method creates a ValuesQuery object. 
+# the values method creates a ValuesQuery object.
 # Then, if the TextSummary exists, we return it as a dict.
 async def get(id: int) -> Union[dict, None]:
     summary = await TextSummary.filter(id=id).first().values()

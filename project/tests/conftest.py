@@ -14,8 +14,7 @@ def get_settings_override():
     return Settings(testing=1, database_url=os.environ.get('DATABASE_TEST_URL'))
 
 
-
-# dependency_overrides is a dict of key/value pairs where 
+# dependency_overrides is a dict of key/value pairs where
 # the key is the dependency name and the value is what we'd like to override it with:
 # key: get_settings
 # value: get_settings_override

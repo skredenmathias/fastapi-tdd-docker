@@ -23,11 +23,3 @@ class Settings(BaseSettings):
 def get_settings() -> BaseSettings:
     log.info('Loading config settings from the environment...')
     return Settings()
-
-
-
-
-
-# unused venv cmd commands:
-# (env)$ export ENVIRONMENT=prod
-# (env)$ export TESTING=1
