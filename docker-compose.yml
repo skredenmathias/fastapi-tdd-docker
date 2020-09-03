@@ -18,6 +18,7 @@ services:
     environment:
       - ENVIRONMENT=dev
       - TESTING=0
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1 # Consider removing
       - DATABASE_URL=postgres://postgres:postgres@web-db:5432/web_dev
       - DATABASE_TEST_URL=postgres://postgres:postgres@web-db:5432/web_test
     depends_on:

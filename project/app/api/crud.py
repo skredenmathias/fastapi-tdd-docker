@@ -1,3 +1,5 @@
+from typing import Union
+
 from app.models.pydantic import SummaryPayloadSchema
 from app.models.tortoise import TextSummary
 
@@ -14,4 +16,11 @@ async def post(payload: SummaryPayloadSchema) -> int:
     return summary.id
 
 
-# @router.post('/', response_model=SummaryPayloadSchema, status_code=201)
+# Union[dict, None] is equivalent to Optional[dict]
+# the values method creates a ValuesQuery object. 
+# Then, if the TextSummary exists, we return it as a dict.
+async def get(id: int) -> Union[dict, None]:
+    summary = await TextSummary.filter(id=id).first().values()
+    if summary:
+        return summary[0]
+    return None
