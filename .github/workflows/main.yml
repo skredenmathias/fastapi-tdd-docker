@@ -3,7 +3,7 @@ name: Continuous Integration and Delivery
 on: [push]
 
 env:
-  IMAGE: docker.pkg.github.com/$fastapi-tdd-docker/web
+  IMAGE: docker.pkg.github.com/$GITHUB_REPOSITORY/web
 
 jobs:
 
@@ -24,7 +24,7 @@ jobs:
         run: |
           docker build \
             --cache-from ${{ env.IMAGE }}:latest \
-            --tag "${{ env.IMAGE }}:latest" \
+            --tag ${{ env.IMAGE }}:latest \
             --file ./project/Dockerfile.prod \
             "./project"
       - name: Push image
