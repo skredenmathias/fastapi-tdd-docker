@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     database_url: AnyUrl = os.environ.get("DATABASE_URL")
 
 
-# lru_cache cahes the settings so 'get_settings' is only called once
+# lru_cache caches the settings so 'get_settings' is only called once
 @lru_cache()
 def get_settings() -> BaseSettings:
     log.info("Loading config settings from the environment...")
