@@ -10,7 +10,6 @@ from app.summarizer import generate_summary
 # 2. Creates a TextSummary instance
 # 3. Returns the generated ID
 async def post(payload: SummaryPayloadSchema) -> int:
-    article_summary = generate_summary(payload.url)
     summary = TextSummary(url=payload.url, summary=article_summary)
     await summary.save()
     return summary.id
